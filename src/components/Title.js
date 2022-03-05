@@ -1,10 +1,35 @@
 import React from 'react';
+import { useState } from 'react';
+import User from './User';
+const Title = ({ onAdd }) => {
+  const [title, setTitle] = useState('');
+  const [blog, setBlog] = useState('');
 
-const Title = (props) => {
+  const onSubmit = (e) => {
+    e.preventDefault();
+
+    onAdd({ title, blog });
+    setTitle('');
+    setBlog('');
+  };
+
   return (
-    <form>
+    <form onSubmit={onSubmit}>
+      <User />
       <label>Title: </label>
-      <textarea />
+      <input
+        type="text"
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+      />
+      <label>Blog Post:</label>
+      <input
+        type="text"
+        value={blog}
+        onChange={(e) => setBlog(e.target.value)}
+      />
+
+      <input type="submit" value="Submit" />
     </form>
   );
 };

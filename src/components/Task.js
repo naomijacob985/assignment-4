@@ -4,7 +4,8 @@ const Task = ({ post }) => {
   return (
     <div class="container m-3">
       <h3>
-        {post.text} <Button onClick={() => onDelete(post.id)} />
+        {post.text}
+        <Button />
       </h3>
     </div>
   );
