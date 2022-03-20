@@ -2,17 +2,17 @@ import React from 'react';
 
 const Post = ({ post, onDelete }) => {
   return (
-    <div className="post">
-      <h3 className="title">
+    <div>
+      <h3>
         {post.user}
-        <button className="delButton" onClick={() => onDelete(post.article)}>
-          Delete
-        </button>
+        <button onClick={() => onDelete(post.blog)}>Delete</button>
       </h3>
-      <p className="user">Post Title: {post.title}</p>
-      <p className="article">Blog Post: {post.blog}</p>
+      <p>Post Title: {post.title}</p>
+      <p>Blog Post: {post.blog}</p>
     </div>
   );
 };
 
 export default Post;
+
+

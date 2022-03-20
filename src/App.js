@@ -3,7 +3,7 @@ import './style.css';
 import { useState } from 'react';
 import Header from './components/Header';
 import Title from './components/Title';
-import AddPost from './components/AddPost';
+import AddPost from './components/DisplayPost';
 import { useState } from 'react';
 
 export default function App() {
@@ -26,7 +26,7 @@ export default function App() {
       <Header />
       <Title posts={posts} onAdd={addPost} showPost={showAddPost} />
       <div className="col-md-6">
-        <AddPost posts={posts} onDelete={deleteTask} />
+        <DisplayPost posts={posts} onDelete={deleteTask} />
       </div>
     </div>
   );

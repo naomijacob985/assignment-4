@@ -1,7 +1,7 @@
 import React from 'react';
 import Post from './Post';
 
-const AddPost = ({ posts, onAdd, onDelete }) => {
+const DisplayPost = ({ posts, onAdd, onDelete }) => {
   return (
     <>
       <h1 id="postfeed">Post feed</h1>
@@ -12,4 +12,4 @@ const AddPost = ({ posts, onAdd, onDelete }) => {
   );
 };
 
-export default AddPost;
+export default DisplayPost;
