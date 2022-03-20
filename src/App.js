@@ -2,34 +2,32 @@ import React from 'react';
 import './style.css';
 import { useState } from 'react';
 import Header from './components/Header';
-import User from './components/User';
 import Title from './components/Title';
-import Blog from './components/Blog';
-import Button from './components/Button';
-
+import DisplayPost from './components/DisplayPost';
 import { useState } from 'react';
 
 export default function App() {
+  const [showAddPost, setShowAddPost] = useState(false);
   const [posts, setPosts] = useState([
-    { id: 1, text: 'doc' },
-    { id: 2, text: 'mtg' },
-    { id: 3, text: 'feb' },
+    { title: '1', blog: 'doc' },
+    { title: 2, blog: 'mtg' },
+    { title: 3, blog: 'feb' },
   ]);
-  const onClick = () => {
-    console.log();
-  };
 
-  const deletePost = (id) => {
-    setPosts(posts.filter((post) => post.id !== id));
+  const addPost = (post) => {
+    setPosts([...posts, post]);
+  };
+  const deleteTask = async (article) => {
+    setPosts(posts.filter((post) => post.article !== article));
   };
 
   return (
     <div>
       <Header />
-      <User />
-      <Title />
-      <Blog posts={posts} onDelete={deletePost} />
-      <Button onClick={onClick} />
+      <Title posts={posts} onAdd={addPost} showPost={showAddPost} />
+      <div className="col-md-6">
+        <DisplayPost posts={posts} onDelete={deleteTask} />
+      </div>
     </div>
   );
 }
