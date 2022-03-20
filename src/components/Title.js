@@ -1,21 +1,34 @@
 import React from 'react';
 import { useState } from 'react';
-import User from './User';
 const Title = ({ onAdd }) => {
+  const [user, setUser] = useState('');
   const [title, setTitle] = useState('');
   const [blog, setBlog] = useState('');
 
   const onSubmit = (e) => {
     e.preventDefault();
 
-    onAdd({ title, blog });
+    onAdd({ user, title, blog });
+    setUser('');
     setTitle('');
     setBlog('');
   };
 
   return (
     <form onSubmit={onSubmit}>
-      <User />
+      <div>
+        <select
+          value={user}
+          onChange={(e) => setUser(e.target.value)}
+          className="form-select"
+          aria-label="User select"
+        >
+          <option defaultValue>Select the user</option>
+          <option>Leanne Graham</option>
+          <option>Ervin Howell</option>
+          <option>Clementine Bauch</option>
+        </select>
+      </div>
       <label>Title: </label>
       <input
         type="text"
@@ -35,30 +48,3 @@ const Title = ({ onAdd }) => {
 };
 
 export default Title;
-// import React, { Component } from 'react';
-
-// class Title extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       value: '',
-//     };
-
-//     this.handleChange = this.handleChange.bind(this);
-//   }
-
-//   handleChange(event) {
-//     this.setState({ value: event.target.value });
-//   }
-
-//   render() {
-//     return (
-//       <form onSubmit={this.handleSubmit}>
-//         <label>Title: </label>
-//         <textarea value={this.state.value} onChange={this.handleChange} />
-//       </form>
-//     );
-//   }
-// }
-
-// export default Title;
