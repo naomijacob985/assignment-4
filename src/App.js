@@ -3,7 +3,7 @@ import './style.css';
 import { useState } from 'react';
 import Header from './components/Header';
 import Title from './components/Title';
-import AddPost from './components/DisplayPost';
+import DisplayPost from './components/DisplayPost';
 import { useState } from 'react';
 
 export default function App() {
