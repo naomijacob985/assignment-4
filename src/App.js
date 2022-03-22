@@ -17,8 +17,8 @@ export default function App() {
   const addPost = (post) => {
     setPosts([...posts, post]);
   };
-  const deleteTask = async (article) => {
-    setPosts(posts.filter((post) => post.article !== article));
+  const deleteTask = async (blog) => {
+    setPosts(posts.filter((post) => post.blog !== blog));
   };
 
   return (
